@@ -1,0 +1,26 @@
+/* Slider.css */
+.slider-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.slider-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-inputs button {
+  margin: 0 10px;
+  padding: 5px 10px;
+}
+
+input[type="range"] {
+  width: 200px;
+}
+
+span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
