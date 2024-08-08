@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tontom/static/css/main.44743038.css",
+    "main.js": "/tontom/static/js/main.2f4d146d.js",
+    "static/js/453.8cb9bba8.chunk.js": "/tontom/static/js/453.8cb9bba8.chunk.js",
+    "index.html": "/tontom/index.html",
+    "main.44743038.css.map": "/tontom/static/css/main.44743038.css.map",
+    "main.2f4d146d.js.map": "/tontom/static/js/main.2f4d146d.js.map",
+    "453.8cb9bba8.chunk.js.map": "/tontom/static/js/453.8cb9bba8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.44743038.css",
+    "static/js/main.2f4d146d.js"
+  ]
+}
