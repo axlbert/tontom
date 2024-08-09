@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/tontom/static/css/main.2e756560.css",
-    "main.js": "/tontom/static/js/main.75f152d8.js",
+    "main.css": "/tontom/static/css/main.0fe42f66.css",
+    "main.js": "/tontom/static/js/main.1cf46022.js",
     "static/js/453.8cb9bba8.chunk.js": "/tontom/static/js/453.8cb9bba8.chunk.js",
+    "static/media/background.jpg": "/tontom/static/media/background.70955546de9772a7784f.jpg",
     "index.html": "/tontom/index.html",
-    "main.2e756560.css.map": "/tontom/static/css/main.2e756560.css.map",
-    "main.75f152d8.js.map": "/tontom/static/js/main.75f152d8.js.map",
+    "main.0fe42f66.css.map": "/tontom/static/css/main.0fe42f66.css.map",
+    "main.1cf46022.js.map": "/tontom/static/js/main.1cf46022.js.map",
     "453.8cb9bba8.chunk.js.map": "/tontom/static/js/453.8cb9bba8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2e756560.css",
-    "static/js/main.75f152d8.js"
+    "static/css/main.0fe42f66.css",
+    "static/js/main.1cf46022.js"
   ]
 }
