@@ -22,6 +22,7 @@ const App = () => {
   const annualSortingVolume = fieldSize * yieldValue;
   const dailySortingVolume = annualSortingVolume / sortingWindow;
   const hourlySortingVolume = dailySortingVolume / shiftSystem;
+  const spitzenlast = hourlySortingVolume * 1.25;
 
   let betriebsart;
   if (sortingWindow > 121 && fieldSize < 60) {
@@ -55,22 +56,26 @@ const App = () => {
         <table className="results-table">
           <thead>
             <tr>
-              <th>Kategorie</th>
+              <th>Sortiervolumen / Betriebe</th>
               <th>Wert</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Jährliches Sortiervolumen</td>
+              <td>Jährlich</td>
               <td>{annualSortingVolume} t</td>
             </tr>
             <tr>
-              <td>Tägliches Sortiervolumen</td>
-              <td>{dailySortingVolume.toFixed(2)}  t</td>
+              <td>Täglich</td>
+              <td>{dailySortingVolume.toFixed(2)} t</td>
             </tr>
             <tr>
-              <td>Stündliches Sortiervolumen </td>
-              <td>{hourlySortingVolume.toFixed(2)}  t</td>
+              <td><b>Stündlich</b></td>
+              <td><b>{hourlySortingVolume.toFixed(2)} t</b></td>
+            </tr>
+            <tr>
+              <td>Spitzenlast (2σ)</td>
+              <td>{spitzenlast.toFixed(2)} t</td>
             </tr>
             <tr>
               <td>Vermutliche Betriebsart</td>
