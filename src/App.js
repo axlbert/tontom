@@ -45,7 +45,7 @@ const App = () => {
       <h1>Mengenkalkulator</h1>
       <div className="sliders">
         <Slider label="Feldgröße (ha)" min={1} max={500} value={fieldSize} onChange={setFieldSize} />
-        <Slider label="Ertrag (t)" min={10} max={60} value={yieldValue} onChange={setYieldValue} />
+        <Slider label="Ertrag/ha (t)" min={10} max={60} value={yieldValue} onChange={setYieldValue} />
         <div className="results">
           <h2>Jährliches Sortiervolumen: {annualSortingVolume} (t)</h2>
         </div>
