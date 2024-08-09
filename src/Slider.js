@@ -14,6 +14,7 @@ const Slider = ({ label, min, max, value, onChange }) => {
           max={max}
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
+          className="slider"
         />
         <button onClick={() => onChange(value + 1)} disabled={value >= max}>+</button>
       </div>

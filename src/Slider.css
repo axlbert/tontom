@@ -1,6 +1,6 @@
 /* Slider.css */
 .slider-container {
-  margin: 20px 0;
+  margin: 10px 0;
   text-align: center;
 }
 
@@ -11,16 +11,39 @@
 }
 
 .slider-inputs button {
-  margin: 0 10px;
+  margin: 0 5px;
   padding: 5px 10px;
 }
 
-input[type="range"] {
+input[type="range"].slider {
   width: 200px;
+  margin: 0 10px;
+  -webkit-appearance: none;
+  background-color: #ddd;
+  height: 8px;
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type="range"].slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #888;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"].slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #888;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 span {
   display: block;
-  margin-top: 10px;
+  margin-top: 5px;
   font-weight: bold;
 }
