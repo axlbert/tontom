@@ -1,64 +1,90 @@
 /* App.css */
-.app-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 10px;
-  text-align: center;
+
+body, html, #root {
+  height: 100%;
+  margin: 0;
   font-family: Arial, sans-serif;
 }
 
-h1 {
-  margin-bottom: 10px;
+.app-container {
+  min-height: 100%;
+  background: url('./background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
 }
 
-.sliders {
-  margin: 10px 0;
+.milky-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.7); /* Milky tint overlay */
+  z-index: 2;
 }
 
-.results {
-  margin-top: 10px;
-  background-color: #f4f4f4;
-  padding: 10px;
-  border-radius: 10px;
-}
-
-.results h2 {
-  margin: 5px 0;
-  font-size: 16px;
-}
-
-.approximation {
-  margin-top: 5px;
-  background-color: #e8e8e8;
-  padding: 5px;
-  border-radius: 10px;
-}
-
-table {
-  width: 100%;
-  margin-top: 10px;
-  border-collapse: collapse;
-}
-
-table, th, td {
-  border: 1px solid black;
-}
-
-th, td {
-  padding: 5px;
+.content-container {
+  position: relative;
+  z-index: 3;
+  padding: 20px;
   text-align: center;
+}
+
+/* Sliders Card styling */
+.sliders-card {
+  background-color: #fff;
+  padding: 15px 0px; /* Adjust padding to reduce width */
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px; /* Match the width of the tables */
+}
+
+/* Results Table styling */
+.results-table {
+  width: 100%;
+  max-width: 800px; /* Match the width of the data table */
+  margin: 20px auto; /* Center the table */
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.results-table th, .results-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Data Table styling */
+.data-table {
+  width: 100%;
+  max-width: 800px; /* Match the width of the results table */
+  margin: 20px auto; /* Center the table */
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.data-table th, .data-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
 }
 
 .highlight {
   background-color: #ffeb3b;
 }
 
-@media (max-width: 600px) {
-  input[type="range"] {
-    width: 150px;
-  }
-
-  table, th, td {
-    font-size: 12px;
+/* Responsive widths */
+@media (min-width: 768px) {
+  .sliders-card, .results-table, .data-table {
+    max-width: 800px; /* Ensure all elements have the same width */
   }
 }

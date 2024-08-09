@@ -19,22 +19,19 @@ const App = () => {
   const [sortingWindow, setSortingWindow] = useState(60);
   const [shiftSystem, setShiftSystem] = useState(7);
 
-  // Calculate the volumes based on current slider values
   const annualSortingVolume = fieldSize * yieldValue;
   const dailySortingVolume = annualSortingVolume / sortingWindow;
   const hourlySortingVolume = dailySortingVolume / shiftSystem;
 
-  // Determine the Betriebsart
   let betriebsart;
   if (sortingWindow > 121 && fieldSize < 60) {
     betriebsart = "Selbstvermarkter";
   } else if (sortingWindow <= 121) {
     betriebsart = "Anbauer Handel";
   } else {
-    betriebsart = "Unbekannt"; // Just as a fallback
+    betriebsart = "Unbekannt";
   }
 
-  // Find the closest matching row
   const closestRow = tableData.reduce((prev, curr) => {
     const currAnnualVolume = curr.flaecheJeBetrieb * yieldValue;
     return Math.abs(currAnnualVolume - annualSortingVolume) < Math.abs(prev.flaecheJeBetrieb * yieldValue - annualSortingVolume) ? curr : prev;
@@ -42,24 +39,52 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <h1>Mengenkalkulator</h1>
-      <div className="sliders">
-        <Slider label="Feldgröße (ha)" min={1} max={500} value={fieldSize} onChange={setFieldSize} />
-        <Slider label="Ertrag/ha (t)" min={10} max={60} value={yieldValue} onChange={setYieldValue} />
-        <div className="results">
-          <h2>Jährliches Sortiervolumen: {annualSortingVolume} (t)</h2>
+      <div className="milky-overlay"></div>
+      <div className="content-container">
+        <h1>Mengenkalkulator</h1>
+        
+        {/* Sliders in a Card */}
+        <div className="sliders-card">
+          <Slider label="Feldgröße (ha)" min={1} max={500} value={fieldSize} onChange={setFieldSize} />
+          <Slider label="Ertrag (t)" min={10} max={60} value={yieldValue} onChange={setYieldValue} />
+          <Slider label="Sortierfenster (Tage)" min={5} max={365} value={sortingWindow} onChange={setSortingWindow} />
+          <Slider label="Schichtsystem (Std/Tag)" min={1} max={24} value={shiftSystem} onChange={setShiftSystem} />
         </div>
-        <Slider label="Sortierfenster (Tage)" min={5} max={365} value={sortingWindow} onChange={setSortingWindow} />
-        <Slider label="Schichtsystem (Std/Tag)" min={1} max={24} value={shiftSystem} onChange={setShiftSystem} />
-        <div className="results">
-          <h2>Sortierbedarf/Tag: {dailySortingVolume.toFixed(2)} (t)</h2>
-          <h2>Sortierbedarf/Std: {hourlySortingVolume.toFixed(2)} (t)</h2>
-        </div>
-      
-        <div className="approximation">
-          <h3>Betriebe im Segment (DE): {closestRow.betriebe}</h3>
-        </div>
-        <table>
+
+        {/* Results Table */}
+        <table className="results-table">
+          <thead>
+            <tr>
+              <th>Kategorie</th>
+              <th>Wert</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jährliches Sortiervolumen</td>
+              <td>{annualSortingVolume} t</td>
+            </tr>
+            <tr>
+              <td>Tägliches Sortiervolumen</td>
+              <td>{dailySortingVolume.toFixed(2)}  t</td>
+            </tr>
+            <tr>
+              <td>Stündliches Sortiervolumen </td>
+              <td>{hourlySortingVolume.toFixed(2)}  t</td>
+            </tr>
+            <tr>
+              <td>Vermutliche Betriebsart</td>
+              <td>{betriebsart}</td>
+            </tr>
+            <tr>
+              <td>Betriebe im Segment (DE)</td>
+              <td>{closestRow.betriebe}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        {/* Data Table */}
+        <table className="data-table">
           <thead>
             <tr>
               <th>Fläche (ha)</th>
@@ -82,10 +107,7 @@ const App = () => {
             })}
           </tbody>
         </table>
-        <div className="approximation">
-          <p>Betriebsart: {betriebsart}</p>
-          <p>Platzhalter Feature</p>
-        </div>
+        
       </div>
     </div>
   );
