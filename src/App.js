@@ -42,7 +42,7 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <h1>Sortier-Mengenleistung und Marktdaten</h1>
+      <h1>Mengenkalkulator</h1>
       <div className="sliders">
         <Slider label="Feldgröße (ha)" min={1} max={500} value={fieldSize} onChange={setFieldSize} />
         <Slider label="Ertrag (t)" min={10} max={60} value={yieldValue} onChange={setYieldValue} />
